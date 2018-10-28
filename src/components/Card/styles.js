@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Icon from 'components/Icon';
 
-export const StyledCard = styled.div`
-  width: 48%;
+export const CardContainer = styled.li`
+  width: 45%;
   min-width: 170px;
   max-width: 270px;
   background-color: ${({ background }) => background};
@@ -10,6 +10,8 @@ export const StyledCard = styled.div`
   height: 96px;
   padding: 8px;
   position: relative;
+  margin-bottom: 16px;
+  margin-right: 16px;
 `;
 
 export const CardTitle = styled.h3`

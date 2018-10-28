@@ -9,6 +9,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 4px;
   width: 100%;
+  min-width: 300px;
 `;
 
 export const NavButton = styled.button.attrs({

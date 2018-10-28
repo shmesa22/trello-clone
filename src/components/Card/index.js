@@ -1,16 +1,16 @@
 import React from 'react';
 
 import {
-  StyledCard,
+  CardContainer,
   CardTitle,
   CardFavorite,
 } from './styles';
 
-const Card = () => (
-  <StyledCard background="rgb(0, 121, 191)">
-    <CardTitle>This is a long title with ellipsis</CardTitle>
+const Card = ({ title }) => (
+  <CardContainer background="rgb(0, 121, 191)">
+    <CardTitle>{title}</CardTitle>
     <CardFavorite icon="far fa-star" />
-  </StyledCard>
+  </CardContainer>
 );
 
 export default Card;
