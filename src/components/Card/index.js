@@ -6,10 +6,17 @@ import {
   CardFavorite,
 } from './styles';
 
-const Card = ({ title }) => (
-  <CardContainer background="rgb(0, 121, 191)">
+const Card = ({
+  title,
+  isFavorited,
+  background,
+}) => (
+  <CardContainer background={background}>
     <CardTitle>{title}</CardTitle>
-    <CardFavorite icon="far fa-star" />
+    <CardFavorite
+      icon="far fa-star"
+      isFavorited={isFavorited}
+    />
   </CardContainer>
 );
 

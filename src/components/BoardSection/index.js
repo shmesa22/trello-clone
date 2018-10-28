@@ -7,20 +7,31 @@ import {
   SectionTitle,
 } from './styles';
 
-import { starredBoards } from './index.mock';
-
-const BoardSection = () => (
+const BoardSection = ({
+  icon,
+  title,
+  cards
+}) => (
   <div>
     <SectionTitle>
-      <Icon icon={starredBoards.icon}/> {' '} {starredBoards.title}
+      <Icon icon={icon}/> {' '} {title}
     </SectionTitle>
     <SectionCardsContainer>
-      {starredBoards.cards.map(({ id, title }) => (
-        <Card
-          key={id}
-          title={title}
-        />
-      ))}
+      {
+        cards.map(({
+          id,
+          title,
+          isFavorited,
+          background,
+        }) => (
+          <Card
+            key={id}
+            title={title}
+            isFavorited={isFavorited}
+            background={background}
+          />
+        ))
+      }
     </SectionCardsContainer>
   </div>
 );

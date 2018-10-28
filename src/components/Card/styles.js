@@ -5,7 +5,7 @@ export const CardContainer = styled.li`
   width: 45%;
   min-width: 170px;
   max-width: 270px;
-  background-color: ${({ background }) => background};
+  background-color: ${({ background, theme: { cardsColors} }) => cardsColors[background]};
   border-radius: 3px;
   height: 96px;
   padding: 8px;
@@ -17,7 +17,7 @@ export const CardContainer = styled.li`
 export const CardTitle = styled.h3`
   font-size: 1rem;
   line-height: 1.5;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.colors.white};
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -29,5 +29,5 @@ export const CardFavorite = styled(Icon)`
   position: absolute;
   bottom: 8px;
   right: 8px;
-  color: ${({ theme }) => theme.white};
+  color: ${({ isFavorited, theme: { colors } }) => isFavorited ? colors.yellow : colors.white};
 `;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
   align-items: center;
-  background-color: ${({ theme }) => theme.backgroundPrimary};
+  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
   box-sizing: border-box;
   display: flex;
   height: 40px;
@@ -54,6 +54,6 @@ export const NavTitle = styled.h1`
   color: hsla(0,0%,100%,.4);
 
   &:hover {
-    color: ${({ theme }) => theme.white};
+    color: ${({ theme }) => theme.colors.white};
   }
 `;

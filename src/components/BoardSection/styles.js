@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SectionTitle = styled.h2`
   font-size: 1.15rem;
   line-height: 1.5;
-  color: ${({theme}) => theme.textPrimary};
+  color: ${({theme}) => theme.colors.textPrimary};
 `;
 
 export const SectionCardsContainer = styled.ul`

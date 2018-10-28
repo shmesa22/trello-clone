@@ -2,18 +2,17 @@ import React, { Component, Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from 'styles/global';
-import BoardSection from 'components/BoardSection';
 import Navbar from 'components/Navbar';
-import { colors } from 'styles/palette';
+import Router from 'pages/Router';
+import { colors, cardsColors } from 'styles/palette';
 
 class App extends Component {
   render() {
     return (
-      <ThemeProvider theme={colors}>
+      <ThemeProvider theme={{ colors, cardsColors }}>
         <Fragment>
           <Navbar />
-          <BoardSection />
-          <BoardSection />
+          <Router />
           <GlobalStyle />
         </Fragment>
       </ThemeProvider>
