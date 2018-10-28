@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 
+import BoardDescription from 'components/BoardDescription';
+
 class Board extends PureComponent {
   componentDidMount() {
     document.title = 'Board | Trello';
@@ -7,7 +9,7 @@ class Board extends PureComponent {
 
   render() {
     return (
-      <h4>Hello world</h4>
+      <BoardDescription />
     );
   }
 }
