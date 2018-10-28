@@ -1,21 +1,21 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 import Icon from 'components/Icon';
 
-export const CardContainer = styled.li`
-  width: 45%;
-  min-width: 170px;
-  max-width: 270px;
-  background-color: ${({ background, theme: { cardsColors} }) => cardsColors[background]};
-  border-radius: 3px;
-  height: 96px;
-  padding: 8px;
+export const StyledCard = styled(Link)`
+  width: 100%;
+  height: 100%;
   position: relative;
-  margin-bottom: 16px;
-  margin-right: 16px;
+  background-color: ${({ background, theme: { cardsColors} }) => cardsColors[background]};
+  display: block;
+  border-radius: 3px;
+  padding: 8px;
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 1rem;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.white};
   width: 100%;

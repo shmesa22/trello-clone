@@ -3,9 +3,11 @@ import React from 'react';
 import Icon from 'components/Icon';
 import Card from 'components/Card';
 import {
+  CardContainer,
   SectionCardsContainer,
   SectionTitle,
 } from './styles';
+import { getFriendlyUrl } from 'utils/getFriendlyUrl';
 
 const BoardSection = ({
   icon,
@@ -24,12 +26,14 @@ const BoardSection = ({
           isFavorited,
           background,
         }) => (
-          <Card
-            key={id}
-            title={title}
-            isFavorited={isFavorited}
-            background={background}
-          />
+          <CardContainer key={id}>
+            <Card
+              to={`/boards/${getFriendlyUrl(title)}`}
+              title={title}
+              isFavorited={isFavorited}
+              background={background}
+            />
+          </CardContainer>
         ))
       }
     </SectionCardsContainer>

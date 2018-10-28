@@ -24,6 +24,14 @@ const GlobalStyle = createGlobalStyle`
   ul li {
     list-style-type: none;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: inherit;
+  }
 `;
 
 export default GlobalStyle;

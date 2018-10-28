@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  CardContainer,
+  StyledCard,
   CardTitle,
   CardFavorite,
 } from './styles';
@@ -10,14 +10,18 @@ const Card = ({
   title,
   isFavorited,
   background,
+  to,
 }) => (
-  <CardContainer background={background}>
+  <StyledCard
+    to={to}
+    background={background}
+  >
     <CardTitle>{title}</CardTitle>
     <CardFavorite
       icon="far fa-star"
       isFavorited={isFavorited}
     />
-  </CardContainer>
+  </StyledCard>
 );
 
 export default Card;
