@@ -1,6 +1,7 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 
 import BoardSection from 'components/BoardSection';
+import Container from 'components/Container';
 import {
   recentlyViewed,
   starredBoards,
@@ -14,7 +15,7 @@ class Boards extends PureComponent {
 
   render() {
     return (
-      <Fragment>
+      <Container>
         <BoardSection
           title={starredBoards.title}
           icon={starredBoards.icon}
@@ -30,7 +31,7 @@ class Boards extends PureComponent {
           icon={personalBoards.icon}
           cards={personalBoards.cards}
         />
-      </Fragment>
+      </Container>
     );
   }
 }
