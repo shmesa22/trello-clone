@@ -1,6 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 
 import BoardDescription from 'components/BoardDescription';
+import List from 'components/List';
+import { ListsContainer } from './styles';
 
 class Board extends PureComponent {
   componentDidMount() {
@@ -9,7 +11,14 @@ class Board extends PureComponent {
 
   render() {
     return (
-      <BoardDescription />
+      <Fragment>
+        <BoardDescription />
+        <ListsContainer>
+          <List />
+          <List />
+          <List />
+        </ListsContainer>
+      </Fragment>
     );
   }
 }

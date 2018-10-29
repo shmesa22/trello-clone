@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DescriptionContainer = styled.div`
   width: 100%;
-  min-width: 450px;
+  min-width: 300px;
   display: flex;
   align-items: center;
   padding: 8px;

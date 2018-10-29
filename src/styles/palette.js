@@ -6,6 +6,7 @@ export const colors = {
   white: '#ffffff',
   black: '#000000',
   yellow: '#ffeb3b',
+  lightGrey: '#dfe3e6',
 }
 
 export const cardsColors = {
