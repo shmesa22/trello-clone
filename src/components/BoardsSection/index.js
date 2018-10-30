@@ -6,13 +6,15 @@ import {
   CardContainer,
   SectionCardsContainer,
   SectionTitle,
+  CreateCard
 } from './styles';
 import { getFriendlyUrl } from 'utils/getFriendlyUrl';
 
-const BoardSection = ({
+const BoardsSection = ({
   icon,
   title,
-  cards
+  cards,
+  onCreateClick,
 }) => (
   <div>
     <SectionTitle>
@@ -36,8 +38,11 @@ const BoardSection = ({
           </CardContainer>
         ))
       }
+      {onCreateClick && <CardContainer>
+        <CreateCard onClick={onCreateClick} />
+      </CardContainer>}
     </SectionCardsContainer>
   </div>
 );
 
-export default BoardSection;
+export default BoardsSection;

@@ -1,35 +1,54 @@
 import React, { PureComponent } from 'react';
 
-import BoardSection from 'components/BoardSection';
+import BoardsSection from 'components/BoardsSection';
 import Container from 'components/Container';
 import {
-  recentlyViewed,
   starredBoards,
-  personalBoards
+  personalBoards,
+  cards
 } from './index.mock';
+import { getFavoritedCards } from 'utils/getFavoritedCards';
 
 class Boards extends PureComponent {
+  state = {
+    cards,
+    nextId: cards[cards.length - 1].id + 1,
+  };
+
   componentDidMount() {
     document.title = 'Boards | Trello';
   }
 
+  handleCreateClick = () => {
+    this.setState(previousState => ({
+      cards: [
+        ...previousState.cards,
+        {
+          id: previousState.nextId,
+          title: 'new card',
+          isFavorited: false,
+          background: 'blue',
+        }
+      ],
+      nextId: previousState.nextId + 1,
+    }));
+  }
+
   render() {
+    const { cards } = this.state;
+
     return (
       <Container>
-        <BoardSection
+        <BoardsSection
           title={starredBoards.title}
           icon={starredBoards.icon}
-          cards={starredBoards.cards}
+          cards={getFavoritedCards(cards)}
         />
-        <BoardSection
-          title={recentlyViewed.title}
-          icon={recentlyViewed.icon}
-          cards={recentlyViewed.cards}
-        />
-        <BoardSection
+        <BoardsSection
           title={personalBoards.title}
           icon={personalBoards.icon}
-          cards={personalBoards.cards}
+          cards={cards}
+          onCreateClick={this.handleCreateClick}
         />
       </Container>
     );

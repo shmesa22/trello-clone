@@ -22,3 +22,16 @@ export const CardContainer = styled.li`
   margin-bottom: 16px;
   margin-right: 16px;
 `;
+
+export const CreateCard = styled.button.attrs({
+  children: 'Create new card',
+})`
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme: { colors } }) => colors.lightGrey};
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  cursor: pointer;
+`;
