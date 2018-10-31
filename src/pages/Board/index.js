@@ -3,6 +3,9 @@ import React, { PureComponent, Fragment } from 'react';
 import BoardDescription from 'components/BoardDescription';
 import List from 'components/List';
 import { ListsContainer } from './styles';
+import {
+  boardLists
+} from './index.mock';
 
 class Board extends PureComponent {
   componentDidMount() {
@@ -14,9 +17,9 @@ class Board extends PureComponent {
       <Fragment>
         <BoardDescription />
         <ListsContainer>
-          <List />
-          <List />
-          <List />
+          {boardLists.map(({ id, ...props }) => (
+            <List key={id} {...props} />
+          ))}
         </ListsContainer>
       </Fragment>
     );
