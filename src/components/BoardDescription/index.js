@@ -9,10 +9,8 @@ import {
 
 const BoardDescription = () => (
   <DescriptionContainer>
-    <DescriptionTitle>
-      React MDE {' '}
-      <Icon icon="far fa-star" />
-    </DescriptionTitle> {' | '}
+    <DescriptionTitle />
+    <Icon icon="far fa-star" /> {' | '}
     <DescriptionDetails>
       Personal
     </DescriptionDetails> {' | '}

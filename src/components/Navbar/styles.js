@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
   align-items: center;
@@ -12,7 +13,7 @@ export const Nav = styled.nav`
   min-width: 300px;
 `;
 
-export const NavButton = styled.button.attrs({
+export const NavButton = styled(Link).attrs({
   type: 'button',
 })`
   align-items: center;

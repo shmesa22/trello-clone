@@ -11,19 +11,25 @@ import {
 const Navbar = () => (
   <Nav>
     <NavSection>
-      <NavButton>
+      <NavButton
+        to="/boards"
+      >
         <Icon
           icon="fas fa-home"
           color="white"
         />
       </NavButton>
-      <NavButton>
+      <NavButton
+        to="/boards"
+      >
         <Icon
           icon="fab fa-trello"
           color="white"
         />
       </NavButton>
-      <NavButton>
+      <NavButton
+        to="/boards"
+      >
         <Icon
           icon="fas fa-search"
           color="white"
@@ -36,19 +42,25 @@ const Navbar = () => (
       </NavTitle>
     </NavSection>
     <NavSection>
-      <NavButton>
+      <NavButton
+        to="/boards"
+      >
         <Icon
           icon="fas fa-plus"
           color="white"
         />
       </NavButton>
-      <NavButton>
+      <NavButton
+        to="/boards"
+      >
         <Icon
           icon="fas fa-info"
           color="white"
         />
       </NavButton>
-      <NavButton>
+      <NavButton
+        to="/boards"
+      >
         <Icon
           icon="fas fa-bell"
           color="white"

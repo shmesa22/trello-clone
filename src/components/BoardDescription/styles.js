@@ -8,13 +8,16 @@ export const DescriptionContainer = styled.div`
   padding: 8px;
 `;
 
-export const DescriptionTitle = styled.h3`
+export const DescriptionTitle = styled.input.attrs({
+  placeholder: 'React MDE',
+})`
   font-size: 18px;
   font-weight: 700;
   line-height: 32px;
   margin: 0;
   padding: 0 8px 0 0;
   color: ${({ theme: { colors } }) => colors.textSecondary };
+  border: none;
 `;
 
 export const DescriptionDetails = styled.p`
