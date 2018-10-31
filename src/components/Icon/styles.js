@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledIcon = styled.span`
-  font-size: ${({ size }) => size};
   color: ${({ color, theme }) => theme.colors[color] || color};
+  font-size: ${({ size }) => size};
 `;
 
 StyledIcon.defaultProps = {
   size: '16px',
-  color: 'inherit'
+  color: 'inherit',
 };

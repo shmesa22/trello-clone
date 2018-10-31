@@ -10,11 +10,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   ul {

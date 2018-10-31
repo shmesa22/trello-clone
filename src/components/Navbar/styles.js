@@ -8,28 +8,28 @@ export const Nav = styled.nav`
   display: flex;
   height: 40px;
   justify-content: space-between;
+  min-width: 300px;
   padding: 4px;
   width: 100%;
-  min-width: 300px;
 `;
 
 export const NavButton = styled(Link).attrs({
   type: 'button',
 })`
   align-items: center;
-  border-radius: 3px;
+  background-color: hsla(0, 0%, 100%, 0.3);
   border: 0;
+  border-radius: 3px;
+  color: #fff;
   display: flex;
+  font-size: 14px;
+  font-weight: 700;
   height: 32px;
   justify-content: space-around;
   min-width: 32px;
-  background-color: hsla(0,0%,100%,.3);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
 
   &:hover {
-    background-color: hsla(0,0%,100%,.4);
+    background-color: hsla(0, 0%, 100%, 0.4);
   }
 
   &:not(:first-child) {
@@ -51,8 +51,8 @@ export const NavSection = styled.div`
 `;
 
 export const NavTitle = styled.h1`
+  color: hsla(0, 0%, 100%, 0.4);
   font-size: 20px;
-  color: hsla(0,0%,100%,.4);
 
   &:hover {
     color: ${({ theme }) => theme.colors.white};

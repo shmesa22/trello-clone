@@ -7,7 +7,7 @@ export const colors = {
   black: '#000000',
   yellow: '#ffeb3b',
   lightGrey: '#dfe3e6',
-}
+};
 
 export const cardsColors = {
   orange: '#d29034',
@@ -19,4 +19,4 @@ export const cardsColors = {
   lightGreen: '#4bbf6b',
   pink: '#cd5a91',
   grey: '#838c91',
-}
+};
