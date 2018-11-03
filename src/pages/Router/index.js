@@ -11,7 +11,7 @@ const Router = () => (
       <Navbar />
       <Switch>
         <Route exact path="/boards" component={Boards} />
-        <Route exact path="/boards/:friendly_url" component={Board} />
+        <Route exact path="/boards/:id" component={Board} />
         <Redirect to="/boards" />
       </Switch>
     </Fragment>

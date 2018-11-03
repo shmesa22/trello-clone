@@ -9,14 +9,14 @@ export const colors = {
   lightGrey: '#dfe3e6',
 };
 
-export const cardsColors = {
-  orange: '#d29034',
-  red: '#b04632',
-  purple: '#89609e',
-  blue: '#0079bf',
-  lightBlue: '#00aecc',
-  green: '#519839',
-  lightGreen: '#4bbf6b',
-  pink: '#cd5a91',
-  grey: '#838c91',
-};
+export const cardsColors = [
+  '#d29034',
+  '#b04632',
+  '#89609e',
+  '#0079bf',
+  '#00aecc',
+  '#519839',
+  '#4bbf6b',
+  '#cd5a91',
+  '#838c91',
+];

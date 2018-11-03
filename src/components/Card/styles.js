@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Icon from 'components/Icon';
 
 export const StyledCard = styled(Link)`
-  background-color: ${({ background, theme: { cardsColors } }) =>
-    cardsColors[background]};
+  background-color: ${({ theme: { cardsColors } }) =>
+    cardsColors[Math.floor(Math.random() * 9)]};
   border-radius: 3px;
   display: block;
   height: 100%;

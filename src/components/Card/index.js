@@ -1,26 +1,11 @@
 import React from 'react';
 
-import {
-  StyledCard,
-  CardTitle,
-  CardFavorite,
-} from './styles';
+import { StyledCard, CardTitle, CardFavorite } from './styles';
 
-const Card = ({
-  title,
-  isFavorited,
-  background,
-  to,
-}) => (
-  <StyledCard
-    to={to}
-    background={background}
-  >
+const Card = ({ title, isFavorited, to }) => (
+  <StyledCard to={to}>
     <CardTitle>{title}</CardTitle>
-    <CardFavorite
-      icon="far fa-star"
-      isFavorited={isFavorited}
-    />
+    <CardFavorite icon="far fa-star" isFavorited={isFavorited} />
   </StyledCard>
 );
 

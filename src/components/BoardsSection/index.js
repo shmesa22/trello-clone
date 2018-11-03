@@ -6,41 +6,25 @@ import {
   CardContainer,
   SectionCardsContainer,
   SectionTitle,
-  CreateCard
+  CreateCard,
 } from './styles';
-import { getFriendlyUrl } from 'utils/getFriendlyUrl';
 
-const BoardsSection = ({
-  icon,
-  title,
-  cards,
-  onCreateClick,
-}) => (
+const BoardsSection = ({ icon, title, boards, onCreateClick }) => (
   <div>
     <SectionTitle>
-      <Icon icon={icon}/> {' '} {title}
+      <Icon icon={icon} /> {title}
     </SectionTitle>
     <SectionCardsContainer>
-      {
-        cards.map(({
-          id,
-          title,
-          isFavorited,
-          background,
-        }) => (
-          <CardContainer key={id}>
-            <Card
-              to={`/boards/${getFriendlyUrl(title)}`}
-              title={title}
-              isFavorited={isFavorited}
-              background={background}
-            />
-          </CardContainer>
-        ))
-      }
-      {onCreateClick && <CardContainer>
-        <CreateCard onClick={onCreateClick} />
-      </CardContainer>}
+      {boards.map(({ id, title, isFavorited }) => (
+        <CardContainer key={id}>
+          <Card to={`/boards/${id}`} title={title} isFavorited={isFavorited} />
+        </CardContainer>
+      ))}
+      {onCreateClick && (
+        <CardContainer>
+          <CreateCard onClick={onCreateClick} />
+        </CardContainer>
+      )}
     </SectionCardsContainer>
   </div>
 );
