@@ -2,52 +2,53 @@ import React, { PureComponent } from 'react';
 
 import BoardsSection from 'components/BoardsSection';
 import Container from 'components/Container';
-import {
-  starredBoards,
-  personalBoards,
-  cards
-} from './index.mock';
-import { getFavoritedCards } from 'utils/getFavoritedCards';
+import { starredBoards, personalBoards } from './index.mock';
+
+import BoardsApi from 'services/BoardsApi';
 
 class Boards extends PureComponent {
-  state = {
-    cards,
-    nextId: cards[cards.length - 1].id + 1,
-  };
+  constructor(props) {
+    super(props);
 
-  componentDidMount() {
-    document.title = 'Boards | Trello';
+    this.state = {
+      boards: [],
+    };
+
+    this.handleCreateClick = this.handleCreateClick.bind(this);
   }
 
-  handleCreateClick = () => {
+  async componentDidMount() {
+    document.title = 'Boards | Trello';
+
+    const boards = await BoardsApi.getBoards();
+    this.setState({ boards });
+  }
+
+  async handleCreateClick() {
+    const newBoard = await BoardsApi.createBoard({
+      title: 'new board',
+      description: 'new board',
+    });
+
     this.setState(previousState => ({
-      cards: [
-        ...previousState.cards,
-        {
-          id: previousState.nextId,
-          title: 'new card',
-          isFavorited: false,
-          background: 'blue',
-        }
-      ],
-      nextId: previousState.nextId + 1,
+      boards: [...previousState.boards, newBoard],
     }));
   }
 
   render() {
-    const { cards } = this.state;
+    const { boards } = this.state;
 
     return (
       <Container>
         <BoardsSection
           title={starredBoards.title}
           icon={starredBoards.icon}
-          cards={getFavoritedCards(cards)}
+          boards={boards}
         />
         <BoardsSection
           title={personalBoards.title}
           icon={personalBoards.icon}
-          cards={cards}
+          boards={boards}
           onCreateClick={this.handleCreateClick}
         />
       </Container>
