@@ -7,16 +7,13 @@ import {
   DescriptionTitle,
 } from './styles';
 
-const BoardDescription = () => (
+const BoardDescription = ({ title, onBlur }) => (
   <DescriptionContainer>
-    <DescriptionTitle />
+    <DescriptionTitle title={title} onBlur={onBlur} />
     <Icon icon="far fa-star" /> {' | '}
+    <DescriptionDetails>Personal</DescriptionDetails> {' | '}
     <DescriptionDetails>
-      Personal
-    </DescriptionDetails> {' | '}
-    <DescriptionDetails>
-      <Icon icon="fas fa-lock" /> {' '}
-      Private
+      <Icon icon="fas fa-lock" /> Private
     </DescriptionDetails>
   </DescriptionContainer>
 );

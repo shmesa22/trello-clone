@@ -9,7 +9,7 @@ export const DescriptionContainer = styled.div`
 `;
 
 export const DescriptionTitle = styled.input.attrs({
-  placeholder: 'React MDE',
+  placeholder: props => props.title,
 })`
   border: none;
   color: ${({ theme: { colors } }) => colors.textSecondary};
@@ -18,6 +18,10 @@ export const DescriptionTitle = styled.input.attrs({
   line-height: 32px;
   margin: 0;
   padding: 0 8px 0 0;
+
+  &::placeholder {
+    text-transform: capitalize;
+  }
 `;
 
 export const DescriptionDetails = styled.p`
