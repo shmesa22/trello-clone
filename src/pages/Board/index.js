@@ -39,7 +39,7 @@ class Board extends PureComponent {
 
     this.setState(prevState => ({
       board: {
-        ...prevState.board.lists,
+        ...prevState.board,
         title,
       },
     }));
