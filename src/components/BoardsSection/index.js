@@ -15,11 +15,12 @@ const BoardsSection = ({ icon, title, boards, onCreateClick }) => (
       <Icon icon={icon} /> {title}
     </SectionTitle>
     <SectionCardsContainer>
-      {boards.map(({ id, title, isFavorited }) => (
-        <CardContainer key={id}>
-          <Card to={`/boards/${id}`} title={title} isFavorited={isFavorited} />
-        </CardContainer>
-      ))}
+      {!!boards &&
+        boards.map(({ id, ...props }) => (
+          <CardContainer key={id}>
+            <Card to={`/boards/${id}`} {...props} />
+          </CardContainer>
+        ))}
       {onCreateClick && (
         <CardContainer>
           <CreateCard onClick={onCreateClick} />

@@ -5,6 +5,7 @@ import Container from 'components/Container';
 import { starredBoards, personalBoards } from './index.mock';
 
 import BoardsApi from 'services/BoardsApi';
+import { mapBoardsToSections } from 'utils/mapBoardsToSections';
 
 class Boards extends PureComponent {
   constructor(props) {
@@ -38,17 +39,19 @@ class Boards extends PureComponent {
   render() {
     const { boards } = this.state;
 
+    const { favoriteBoards, rest } = mapBoardsToSections(boards);
+
     return (
       <Container>
         <BoardsSection
           title={starredBoards.title}
           icon={starredBoards.icon}
-          boards={boards}
+          boards={favoriteBoards}
         />
         <BoardsSection
           title={personalBoards.title}
           icon={personalBoards.icon}
-          boards={boards}
+          boards={rest}
           onCreateClick={this.handleCreateClick}
         />
       </Container>
