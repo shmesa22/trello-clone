@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import Icon from 'components/Icon';
+
 export const DescriptionContainer = styled.div`
   align-items: center;
   display: flex;
@@ -28,4 +30,13 @@ export const DescriptionDetails = styled.p`
   color: ${({ theme: { colors } }) => colors.textSecondary};
   font-size: 14px;
   padding: 0 8px;
+`;
+
+export const CardFavorite = styled(Icon)`
+  color: ${({ isFavorited, theme: { colors } }) =>
+    isFavorited ? colors.yellow : colors.textPrimary};
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

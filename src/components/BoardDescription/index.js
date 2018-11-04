@@ -5,12 +5,18 @@ import {
   DescriptionContainer,
   DescriptionDetails,
   DescriptionTitle,
+  CardFavorite,
 } from './styles';
 
-const BoardDescription = ({ title, onBlur }) => (
+const BoardDescription = ({ title, isFavorited, onBlur, onFavoriteClick }) => (
   <DescriptionContainer>
     <DescriptionTitle title={title} onBlur={onBlur} />
-    <Icon icon="far fa-star" /> {' | '}
+    <CardFavorite
+      icon="far fa-star"
+      onClick={onFavoriteClick}
+      isFavorited={isFavorited}
+    />{' '}
+    {' | '}
     <DescriptionDetails>Personal</DescriptionDetails> {' | '}
     <DescriptionDetails>
       <Icon icon="fas fa-lock" /> Private

@@ -16,7 +16,8 @@ class Board extends PureComponent {
     };
 
     this.handleBlur = this.handleBlur.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleCreateListClick = this.handleCreateListClick.bind(this);
+    this.handleFavoriteCardClick = this.handleFavoriteCardClick.bind(this);
   }
 
   async componentDidMount() {
@@ -45,7 +46,7 @@ class Board extends PureComponent {
     }));
   }
 
-  async handleClick() {
+  async handleCreateListClick() {
     const { match } = this.props;
     const list = await ListsApi.createList(match.params.id, {
       title: 'new list',
@@ -53,23 +54,44 @@ class Board extends PureComponent {
 
     this.setState(prevState => ({
       board: {
+        ...prevState.board,
         lists: [...prevState.board.lists, list],
+      },
+    }));
+  }
+
+  async handleFavoriteCardClick() {
+    const { match } = this.props;
+    const { board } = this.state;
+    const { isFavorited } = await BoardsApi.editBoard(match.params.id, {
+      isFavorited: !board.isFavorited,
+    });
+
+    this.setState(prevState => ({
+      board: {
+        ...prevState.board,
+        isFavorited,
       },
     }));
   }
 
   render() {
     const {
-      board: { title, lists },
+      board: { title, lists, isFavorited },
     } = this.state;
 
     return (
       <Fragment>
-        <BoardDescription title={title} onBlur={this.handleBlur} />
+        <BoardDescription
+          title={title}
+          isFavorited={isFavorited}
+          onBlur={this.handleBlur}
+          onFavoriteClick={this.handleFavoriteCardClick}
+        />
         <ListsContainer>
           {!!lists &&
             lists.map(({ id, ...props }) => <List key={id} {...props} />)}
-          <NewList onClick={this.handleClick}>New List</NewList>
+          <NewList onClick={this.handleCreateListClick}>New List</NewList>
         </ListsContainer>
       </Fragment>
     );
