@@ -23,12 +23,11 @@ class Board extends PureComponent {
   }
 
   async componentDidMount() {
-    document.title = 'Board | Trello';
-
     const { match } = this.props;
     const board = await BoardsApi.getBoard(match.params.id);
 
     this.setState({ board });
+    document.title = `${board.title} | Trello`;
   }
 
   async handleBlur(event) {
