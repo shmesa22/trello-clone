@@ -6,6 +6,7 @@ import { ListsContainer, NewList } from './styles';
 
 import BoardsApi from 'services/BoardsApi';
 import ListsApi from 'services/ListsApi';
+import TasksApi from 'services/TasksApi';
 
 class Board extends PureComponent {
   constructor(props) {
@@ -18,6 +19,7 @@ class Board extends PureComponent {
     this.handleBlur = this.handleBlur.bind(this);
     this.handleCreateListClick = this.handleCreateListClick.bind(this);
     this.handleFavoriteCardClick = this.handleFavoriteCardClick.bind(this);
+    this.handleCreateTaskList = this.handleCreateTaskList.bind(this);
   }
 
   async componentDidMount() {
@@ -60,6 +62,35 @@ class Board extends PureComponent {
     }));
   }
 
+  handleCreateTaskList(listId) {
+    return async () => {
+      const {
+        board: { lists },
+      } = this.state;
+      const { match } = this.props;
+      const task = await TasksApi.createTask(match.params.id, listId, {
+        title: 'new task',
+      });
+
+      const listIndex = lists.findIndex(list => list.id === listId);
+      const list = lists[listIndex];
+      const newList = {
+        ...list,
+        tasks: [...list.tasks, task],
+      };
+
+      this.setState(prevState => ({
+        board: {
+          ...prevState.board,
+          lists: prevState.board.lists
+            .slice(0, listIndex)
+            .concat(newList)
+            .concat(prevState.board.lists.slice(listIndex + 1)),
+        },
+      }));
+    };
+  }
+
   async handleFavoriteCardClick() {
     const { match } = this.props;
     const { board } = this.state;
@@ -90,7 +121,13 @@ class Board extends PureComponent {
         />
         <ListsContainer>
           {!!lists &&
-            lists.map(({ id, ...props }) => <List key={id} {...props} />)}
+            lists.map(({ id, ...props }) => (
+              <List
+                key={id}
+                onCreateTaskClick={this.handleCreateTaskList(id)}
+                {...props}
+              />
+            ))}
           <NewList onClick={this.handleCreateListClick}>New List</NewList>
         </ListsContainer>
       </Fragment>
